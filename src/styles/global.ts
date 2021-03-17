@@ -9,8 +9,8 @@ const GlobalStyle = createGlobalStyle`
     --text-body: #969CB3;
     
     --red: #E52E4D;
-    --purple: #5429CC;
-    --purple-light: #6933FF;
+    --blue: #5429CC;
+    --purple: #6933FF;
   }
 
   * {
