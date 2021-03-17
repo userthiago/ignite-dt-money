@@ -4,13 +4,13 @@ const GlobalStyle = createGlobalStyle`
   :root {
     --background: #F0F2F5;
     --shape: #FFFFFF;
-    
+
     --text-title: #363F5F;
     --text-body: #969CB3;
     
     --red: #E52E4D;
-    --blue: #5429CC;
-    --blue-light: #6933FF;
+    --purple: #5429CC;
+    --purple-light: #6933FF;
   }
 
   * {
