@@ -11,6 +11,7 @@ const GlobalStyle = createGlobalStyle`
     --red: #E52E4D;
     --blue: #5429CC;
     --purple: #6933FF;
+    --green: #33CC95;
   }
 
   * {
