@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { darken, transparentize } from 'polished';
 
 export const Container = styled.form`
   h2 {
@@ -46,5 +47,58 @@ export const Container = styled.form`
     &:hover {
       filter: brightness(0.9);
     }
+  }
+
+  .transaction-type {
+    &__container {
+      margin: 1rem 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.5rem;
+    }
+  }
+`;
+
+interface RadioBoxProps {
+  isActive: boolean;
+  activeColor: 'green' | 'red';
+}
+
+const colors = {
+  green: '#33CC95',
+  red: '#E52E4D'
+}
+
+export const RadioBox = styled.button<RadioBoxProps>`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: ${({ isActive, activeColor }) => isActive 
+    ? transparentize(0.9, colors[activeColor]) 
+    : 'transparent'};
+  height: 4rem;
+  border: 1px solid ${({ isActive, activeColor }) => isActive 
+    ? colors[activeColor] 
+    : '#d7d7d7'};
+  border-radius: 0.25rem;
+
+  transition: all 0.2s;
+
+  &:hover {
+    border-color: ${darken(0.1, '#d7d7d7')};
+  }
+
+  img {
+    height: 20px;
+    width: 20px;
+  }
+
+  span {
+    display: inline-block;
+    margin-left: 1.125rem;
+
+    color: var(--text-title);
+    font-size: 1rem;
   }
 `;
