@@ -6,6 +6,7 @@ import outcomeImg from '../../assets/outcome.svg';
 import closeImg from '../../assets/close.svg';
 
 import { Container, RadioBox } from "./styles";
+import { api } from "../../services/api";
 
 Modal.setAppElement('#root');
 
@@ -18,7 +19,7 @@ type TransactionType = 'deposit' | 'withdraw';
 
 export function NewTransactionModal({ isOpen, onRequestClose }: NewTransactionModalProps) {
   const title = useRef<HTMLInputElement>(null);
-  const value = useRef<HTMLInputElement>(null);
+  const amount = useRef<HTMLInputElement>(null);
   const category = useRef<HTMLInputElement>(null);
   const [type, setType] = useState('deposit');
 
@@ -27,8 +28,16 @@ export function NewTransactionModal({ isOpen, onRequestClose }: NewTransactionMo
   }
 
   function handleCreateNewTransaction(e: FormEvent) {
-    console.log(title.current?.value, value.current?.value, category.current?.value);
     e.preventDefault();
+
+    const data = {
+      title: title.current?.value, 
+      amount: amount.current?.value, 
+      type,
+      category: category.current?.value
+    };
+
+    api.post('/transactions', data)
   }
 
   return (
@@ -54,7 +63,7 @@ export function NewTransactionModal({ isOpen, onRequestClose }: NewTransactionMo
         <input 
           type="number" 
           placeholder="Valor" 
-          ref={value}
+          ref={amount}
         />
         <div className="transaction-type__container">
           <RadioBox 
