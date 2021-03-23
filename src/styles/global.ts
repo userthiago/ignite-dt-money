@@ -64,7 +64,6 @@ const GlobalStyle = createGlobalStyle`
     justify-content: center;
     
     background: rgba(0, 0, 0, 0.5);
-
   }
 
   .react-modal-content {
